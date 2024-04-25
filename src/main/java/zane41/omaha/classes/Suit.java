@@ -2,7 +2,7 @@ package zane41.omaha.classes;
 
 public enum Suit {
     Hearts("Hearts"), Diamonds("Diamonds"), Spades("Spades"), Clubs("Clubs");
-    private String title;
+     final String title;
 
     Suit(String title) {
         this.title = title;
@@ -14,7 +14,6 @@ public enum Suit {
 
     @Override
     public String toString() {
-        return "Suit = " +
-                 title + '\'';
+        return STR."Suit = \{title}\{'\''}";
     }
 }
