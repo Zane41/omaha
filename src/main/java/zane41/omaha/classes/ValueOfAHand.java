@@ -1,9 +1,10 @@
 package zane41.omaha.classes;
 
-import static zane41.omaha.classes.ValueOfAHand.Values.*;
+
+import static zane41.omaha.classes.ValuesOfHands.*;
 
 public class ValueOfAHand implements Comparable<ValueOfAHand> {
-    Values value;
+    ValuesOfHands value;
 
     @Override
     public int compareTo(ValueOfAHand o) {
@@ -44,20 +45,5 @@ public class ValueOfAHand implements Comparable<ValueOfAHand> {
 
 
 
-    enum Values{
-        Kicker ("Kicker"), Pair("Pair"), TwoPairs("Two Pairs"), Set("Set"), Straight ("Straight"), Flush ("Flush"), FullHouse("Full House"),
-        Quad ("Quad"), StraightFlush ("Straight Flush");
-        private final String title;
 
-        Values(String title) {
-            this.title = title;
-        }
-
-        @Override
-        public String toString() {
-            return STR."values{title='\{title}\{'\''}\{'}'}";
-        }
-
-
-    }
 }
