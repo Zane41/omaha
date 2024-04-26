@@ -6,6 +6,10 @@ import static zane41.omaha.classes.ValuesOfHands.*;
 public class ValueOfAHand implements Comparable<ValueOfAHand> {
     ValuesOfHands value;
 
+    public ValueOfAHand(ValuesOfHands value) {
+        this.value = value;
+    }
+
     @Override
     public int compareTo(ValueOfAHand o) {
         if (this.value == StraightFlush && o.value!= StraightFlush) return 1;
