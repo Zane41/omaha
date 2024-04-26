@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.ButtonBar?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ToggleButton?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="834.0" prefWidth="1295.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="zane41.omaha.PlayScene">
+   <children>
+      <ButtonBar layoutX="39.0" layoutY="702.0" prefHeight="63.0" prefWidth="1213.0">
+         <buttons>
+            <ToggleButton mnemonicParsing="false" prefHeight="25.0" prefWidth="413.0" text="ToggleButton" />
+            <ToggleButton mnemonicParsing="false" text="ToggleButton" />
+            <ToggleButton mnemonicParsing="false" text="ToggleButton" />
+            <ToggleButton mnemonicParsing="false" text="ToggleButton" />
+            <ToggleButton mnemonicParsing="false" text="ToggleButton" />
+         </buttons>
+      </ButtonBar>
+      <AnchorPane layoutX="26.0" layoutY="407.0" prefHeight="299.0" prefWidth="1250.0">
+         <children>
+            <ImageView fitHeight="295.0" fitWidth="230.0" layoutX="34.0" layoutY="2.0" nodeOrientation="INHERIT" pickOnBounds="true" preserveRatio="true" />
+            <ImageView fitHeight="295.0" fitWidth="230.0" layoutX="275.0" layoutY="2.0" nodeOrientation="INHERIT" pickOnBounds="true" preserveRatio="true" />
+            <ImageView fitHeight="295.0" fitWidth="230.0" layoutX="517.0" layoutY="2.0" nodeOrientation="INHERIT" pickOnBounds="true" preserveRatio="true" />
+            <ImageView fitHeight="295.0" fitWidth="230.0" layoutX="757.0" layoutY="2.0" nodeOrientation="INHERIT" pickOnBounds="true" preserveRatio="true" />
+            <ImageView fitHeight="295.0" fitWidth="230.0" layoutX="997.0" layoutY="2.0" nodeOrientation="INHERIT" pickOnBounds="true" preserveRatio="true" />
+         </children>
+      </AnchorPane>
+      <AnchorPane layoutX="39.0" layoutY="63.0" prefHeight="299.0" prefWidth="1250.0">
+         <children>
+            <ImageView fitHeight="295.0" fitWidth="230.0" layoutX="34.0" layoutY="2.0" nodeOrientation="INHERIT" pickOnBounds="true" preserveRatio="true" />
+            <ImageView fitHeight="295.0" fitWidth="230.0" layoutX="275.0" layoutY="2.0" nodeOrientation="INHERIT" pickOnBounds="true" preserveRatio="true" />
+            <ImageView fitHeight="295.0" fitWidth="230.0" layoutX="517.0" layoutY="2.0" nodeOrientation="INHERIT" pickOnBounds="true" preserveRatio="true" />
+            <ImageView fitHeight="295.0" fitWidth="230.0" layoutX="757.0" layoutY="2.0" nodeOrientation="INHERIT" pickOnBounds="true" preserveRatio="true" />
+            <ImageView fitHeight="295.0" fitWidth="230.0" layoutX="997.0" layoutY="2.0" nodeOrientation="INHERIT" pickOnBounds="true" preserveRatio="true" />
+         </children>
+      </AnchorPane>
+      <Label layoutX="583.0" layoutY="774.0" prefHeight="30.0" prefWidth="209.0" text="Your Hand">
+         <font>
+            <Font size="20.0" />
+         </font>
+      </Label>
+      <Label layoutX="554.0" layoutY="25.0" prefHeight="30.0" prefWidth="268.0" text="Opponents Hand">
+         <font>
+            <Font size="20.0" />
+         </font>
+      </Label>
+   </children>
+</AnchorPane>

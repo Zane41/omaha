@@ -10,9 +10,9 @@ import static zane41.omaha.classes.Suit.*;
 
 public class Deck {
 
-    public List<Card> deck;
+    public List<Card> deck = null;
 
-    public Deck(List<Card> deck) {
+    public Deck() {
         deck.add(new Card(2,"2",Spades, new Img(new File("/resources/Images/Atlas_deck_2_of_spades.svg"))));
         deck.add(new Card(3,"3",Spades,new Img(new File("/resources/Images/Atlas_deck_3_of_spades.svg"))));
         deck.add(new Card(4,"4",Spades,new Img(new File("/resources/Images/Atlas_deck_4_of_spades.svg"))));
