@@ -8,4 +8,8 @@ public class Img {
     public Img(File file) {
         this.file = file;
     }
+
+    public File getFile() {
+        return file;
+    }
 }

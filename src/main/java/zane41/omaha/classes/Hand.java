@@ -6,7 +6,7 @@ import static zane41.omaha.classes.ValuesOfHands.*;
 
 public class Hand  {
 
-    ArrayList<Card> setOfCards = new ArrayList<>();
+    public ArrayList<Card> setOfCards = new ArrayList<>();
 
 
 

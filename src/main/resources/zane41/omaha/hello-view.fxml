@@ -11,7 +11,7 @@
          <Font size="22.0" />
       </font>
    </Label>
-   <Button fx:id="startButton" layoutX="357.0" layoutY="297.0" mnemonicParsing="false" prefHeight="366.0" prefWidth="583.0" text="Lets start!" textFill="#bc3636">
+   <Button fx:id="startButton" layoutX="357.0" layoutY="297.0" mnemonicParsing="false" onAction="#onStartButtonClick" prefHeight="366.0" prefWidth="583.0" text="Lets start!" textFill="#bc3636">
       <font>
          <Font size="60.0" />
       </font>
