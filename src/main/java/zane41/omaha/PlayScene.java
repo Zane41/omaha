@@ -1,59 +1,64 @@
 package zane41.omaha;
 
 import javafx.fxml.FXML;
+import javafx.fxml.Initializable;
+import javafx.scene.control.Button;
+import javafx.scene.control.ButtonBar;
 import javafx.scene.control.Label;
 import javafx.scene.control.ToggleButton;
-import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
-import zane41.omaha.classes.Hand;
+import java.net.URL;
+import java.util.ResourceBundle;
+
 
 import static zane41.omaha.HelloController.yourHand;
 
 
-public class PlayScene  {
+public class PlayScene implements Initializable {
 
     @FXML
     protected Label YourHand;
     @FXML
     protected Label OpponentHand;
     @FXML
-    protected ToggleButton chooseCard1;
+     ToggleButton chooseCard1;
     @FXML
-    protected ToggleButton chooseCard2;
+     ToggleButton chooseCard2;
     @FXML
-    protected ToggleButton chooseCard3;
+     ToggleButton chooseCard3;
     @FXML
-    protected ToggleButton chooseCard4;
+     ToggleButton chooseCard4;
     @FXML
-    protected ToggleButton chooseCard5;
+     ToggleButton chooseCard5;
     @FXML
-    protected ImageView playerHandCard1;
+    ImageView playerHandCard1;
     @FXML
-    protected ImageView playerHandCard2;
+     ImageView playerHandCard2;
     @FXML
-    protected ImageView playerHandCard3;
+     ImageView playerHandCard3;
     @FXML
-    protected ImageView playerHandCard4;
+     ImageView playerHandCard4;
     @FXML
-    protected ImageView playerHandCard5;
+     ImageView playerHandCard5;
+    @FXML
+    Button TakeUrCards;
+    @FXML
+    Button ChangeCards;
+    @FXML
+    ButtonBar ChangeBar;
 
-
-    @FXML
-    public void setPictures (Hand currentHand) {
-        Image im1 = new Image(String.valueOf(currentHand.setOfCards.getFirst().getImage()));
-        Image im2 = new Image(String.valueOf(currentHand.setOfCards.getFirst().getImage()));
-        Image im3 = new Image(String.valueOf(currentHand.setOfCards.getFirst().getImage()));
-        Image im4 = new Image(String.valueOf(currentHand.setOfCards.getFirst().getImage()));
-        Image im5 = new Image(String.valueOf(currentHand.setOfCards.getFirst().getImage()));
-        playerHandCard1.setImage(im1);
-        playerHandCard2.setImage(im2);
-        playerHandCard3.setImage(im3);
-        playerHandCard4.setImage(im4);
-        playerHandCard5.setImage(im5);
+    public void onTakeUrCardsClick ()  {
+        playerHandCard1.setImage(yourHand.setOfCards.getFirst().getImage());
+        playerHandCard2.setImage(yourHand.setOfCards.get(1).getImage());
+        playerHandCard3.setImage(yourHand.setOfCards.get(2).getImage());
+        playerHandCard4.setImage(yourHand.setOfCards.get(3).getImage());
+        playerHandCard5.setImage(yourHand.setOfCards.get(4).getImage());
+        TakeUrCards.setVisible(false); YourHand.setVisible(true); ChangeBar.setVisible(true);ChangeCards.setVisible(true);
     }
 
-    public  PlayScene() {
-        Image im1 = yourHand.setOfCards.getFirst().getImage();
-        playerHandCard1.setImage(im1);
+    public  PlayScene()  {
+    }
+    @Override
+    public void initialize(URL url, ResourceBundle resourceBundle) {
     }
 }
