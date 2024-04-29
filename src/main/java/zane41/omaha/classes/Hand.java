@@ -62,5 +62,10 @@ public class Hand  {
         return currentHandWeight;
     }
 
-
+    @Override
+    public String toString() {
+        return "Hand{" +
+                "setOfCards=" + setOfCards +
+                '}';
+    }
 }

@@ -2,9 +2,10 @@ package zane41.omaha.classes;
 
 import javafx.scene.image.Image;
 
+
 public class Card implements Comparable<Card>{
 
-     public int valueForCompare; private String value; private Suit suit; private Image img;
+     public int valueForCompare; private final String value; private final Suit suit; private final Image img;
 
     public Card(int valueForCompare, String value, Suit suit, Image img) {
         this.valueForCompare = valueForCompare;
@@ -31,10 +32,11 @@ public class Card implements Comparable<Card>{
 
     @Override
     public String toString() {
-        return "Card -" +
-                 value + '\'' +
-                 suit +
-                ' ';
+        return "Card{" +
+                "value='" + value + '\'' +
+                ", suit=" + suit +
+                ", img=" + img +
+                '}';
     }
 
     @Override

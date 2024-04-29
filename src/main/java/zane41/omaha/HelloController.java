@@ -16,6 +16,7 @@ import zane41.omaha.classes.Discard;
 import zane41.omaha.classes.Hand;
 
 
+import java.io.IOException;
 import java.net.URL;
 import java.util.Comparator;
 import java.util.ResourceBundle;
@@ -33,13 +34,14 @@ public class HelloController implements Initializable {
     public static Hand opponentsHand = new Hand();
     public static Deck currentDeck = new Deck();
     @FXML
-    public void onStartButtonClick() {
+    public void onStartButtonClick() throws IOException {
 
-
-        currentDeck.fillDeck(currentDeck);
+        currentDeck.fillDeck();
         currentDeck.shuffleDeck();
         currentDeck.fillPlayersHand(yourHand, opponentsHand);
+        System.out.println(yourHand);
         yourHand.setOfCards.sort(Comparator.comparing(Card::getValueForCompare));
+        System.out.println(yourHand);
         opponentsHand.setOfCards.sort(Comparator.comparing(Card::getValueForCompare));
         goToPlayScene(new ActionEvent());
     }
@@ -53,6 +55,7 @@ public class HelloController implements Initializable {
             Scene scene = new Scene(fxmlLoader.load(),1300, 840);
             stage.setScene(scene);
             stage.show();
+
         }
         catch (Exception e) {
             e.printStackTrace();
@@ -63,4 +66,5 @@ public class HelloController implements Initializable {
     public void initialize(URL url, ResourceBundle resourceBundle) {
 
     }
+
 }

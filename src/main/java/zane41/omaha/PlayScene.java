@@ -1,21 +1,14 @@
 package zane41.omaha;
 
-
-
 import javafx.fxml.FXML;
-import javafx.fxml.FXMLLoader;
-import javafx.scene.Scene;
 import javafx.scene.control.Label;
 import javafx.scene.control.ToggleButton;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
-
-import javafx.stage.Stage;
-import zane41.omaha.classes.Deck;
-import zane41.omaha.classes.Discard;
 import zane41.omaha.classes.Hand;
 
 import static zane41.omaha.HelloController.yourHand;
+
 
 public class PlayScene  {
 
@@ -44,16 +37,23 @@ public class PlayScene  {
     @FXML
     protected ImageView playerHandCard5;
 
-    public void setImagesIntoScene (Hand currentHand) {
-        playerHandCard1.setImage(new Image(String.valueOf(currentHand.setOfCards.getFirst().getImage())));
-        playerHandCard2.setImage(new Image(String.valueOf(currentHand.setOfCards.get(1).getImage())));
-        playerHandCard3.setImage(new Image(String.valueOf(currentHand.setOfCards.get(2).getImage())));
-        playerHandCard4.setImage(new Image(String.valueOf(currentHand.setOfCards.get(3).getImage())));
-        playerHandCard5.setImage(new Image(String.valueOf(currentHand.setOfCards.get(4).getImage())));
+
+    @FXML
+    public void setPictures (Hand currentHand) {
+        Image im1 = new Image(String.valueOf(currentHand.setOfCards.getFirst().getImage()));
+        Image im2 = new Image(String.valueOf(currentHand.setOfCards.getFirst().getImage()));
+        Image im3 = new Image(String.valueOf(currentHand.setOfCards.getFirst().getImage()));
+        Image im4 = new Image(String.valueOf(currentHand.setOfCards.getFirst().getImage()));
+        Image im5 = new Image(String.valueOf(currentHand.setOfCards.getFirst().getImage()));
+        playerHandCard1.setImage(im1);
+        playerHandCard2.setImage(im2);
+        playerHandCard3.setImage(im3);
+        playerHandCard4.setImage(im4);
+        playerHandCard5.setImage(im5);
     }
 
-
-    public  PlayScene() throws Exception {
-
+    public  PlayScene() {
+        Image im1 = yourHand.setOfCards.getFirst().getImage();
+        playerHandCard1.setImage(im1);
     }
 }
