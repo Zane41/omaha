@@ -11,7 +11,7 @@
 
 <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="840.0" prefWidth="1300.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="zane41.omaha.PlayScene">
    <children>
-      <ButtonBar fx:id="ChangeBar" layoutX="44.0" layoutY="640.0" prefHeight="63.0" prefWidth="1213.0" visible="false">
+      <ButtonBar fx:id="ChangeBar" layoutX="44.0" layoutY="650.0" prefHeight="63.0" prefWidth="1213.0" visible="false">
          <buttons>
             <ToggleButton fx:id="chooseCard1" mnemonicParsing="false" prefHeight="25.0" prefWidth="413.0" text="Change This Card" />
             <ToggleButton fx:id="chooseCard2" mnemonicParsing="false" text="Change This Card" />
@@ -20,66 +20,66 @@
             <ToggleButton fx:id="chooseCard5" mnemonicParsing="false" text="Change This Card" />
          </buttons>
       </ButtonBar>
-      <AnchorPane fx:id="playersHand" layoutX="25.0" layoutY="334.0" prefHeight="299.0" prefWidth="1250.0">
+      <AnchorPane fx:id="playersHand" layoutX="25.0" layoutY="335.0" prefHeight="300.0" prefWidth="1250.0">
          <children>
-            <ImageView fx:id="playerHandCard2" fitHeight="295.0" fitWidth="230.0" layoutX="292.0" nodeOrientation="INHERIT" pickOnBounds="true" preserveRatio="true">
+            <ImageView fx:id="playerHandCard2" fitHeight="295.0" fitWidth="230.0" layoutX="295.0" layoutY="30.0" nodeOrientation="INHERIT" pickOnBounds="true" preserveRatio="true">
                <image>
                   <Image url="@Images/rubashka.jpg" />
                </image></ImageView>
-            <ImageView fx:id="playerHandCard3" fitHeight="295.0" fitWidth="230.0" layoutX="523.0" nodeOrientation="INHERIT" pickOnBounds="true" preserveRatio="true">
+            <ImageView fx:id="playerHandCard3" fitHeight="295.0" fitWidth="230.0" layoutX="525.0" layoutY="30.0" nodeOrientation="INHERIT" pickOnBounds="true" preserveRatio="true">
                <image>
                   <Image url="@Images/rubashka.jpg" />
                </image></ImageView>
-            <ImageView fx:id="playerHandCard4" fitHeight="295.0" fitWidth="230.0" layoutX="763.0" nodeOrientation="INHERIT" pickOnBounds="true" preserveRatio="true">
+            <ImageView fx:id="playerHandCard4" fitHeight="295.0" fitWidth="230.0" layoutX="765.0" layoutY="30.0" nodeOrientation="INHERIT" pickOnBounds="true" preserveRatio="true">
                <image>
                   <Image url="@Images/rubashka.jpg" />
                </image></ImageView>
-            <ImageView fx:id="playerHandCard5" fitHeight="295.0" fitWidth="230.0" layoutX="1012.0" nodeOrientation="INHERIT" pickOnBounds="true" preserveRatio="true">
+            <ImageView fx:id="playerHandCard5" fitHeight="295.0" fitWidth="230.0" layoutX="1000.0" layoutY="30.0" nodeOrientation="INHERIT" pickOnBounds="true" preserveRatio="true">
                <image>
                   <Image url="@Images/rubashka.jpg" />
                </image></ImageView>
-            <ImageView fx:id="playerHandCard1" fitHeight="295.0" fitWidth="230.0" layoutX="36.0" nodeOrientation="INHERIT" pickOnBounds="true" preserveRatio="true">
+            <ImageView fx:id="playerHandCard1" fitHeight="295.0" fitWidth="230.0" layoutX="35.0" layoutY="30.0" nodeOrientation="INHERIT" pickOnBounds="true" preserveRatio="true">
                <image>
                   <Image url="@Images/rubashka.jpg" />
                </image>
             </ImageView>
          </children>
       </AnchorPane>
-      <AnchorPane layoutX="39.0" layoutY="63.0" prefHeight="245.0" prefWidth="1250.0">
+      <AnchorPane layoutX="25.0" layoutY="65.0" prefHeight="300.0" prefWidth="1250.0">
          <children>
-            <ImageView fitHeight="269.0" fitWidth="230.0" layoutX="26.0" layoutY="2.0" nodeOrientation="INHERIT" pickOnBounds="true" preserveRatio="true">
+            <ImageView fx:id="opponentCard1" fitHeight="295.0" fitWidth="230.0" layoutX="35.0" nodeOrientation="INHERIT" pickOnBounds="true" preserveRatio="true">
                <image>
                   <Image url="@Images/rubashka.jpg" />
                </image>
             </ImageView>
-            <ImageView fitHeight="274.0" fitWidth="230.0" layoutX="277.0" layoutY="2.0" nodeOrientation="INHERIT" pickOnBounds="true" preserveRatio="true">
+            <ImageView fx:id="opponentCard2" fitHeight="295.0" fitWidth="230.0" layoutX="295.0" nodeOrientation="INHERIT" pickOnBounds="true" preserveRatio="true">
                <image>
                   <Image url="@Images/rubashka.jpg" />
                </image>
             </ImageView>
-            <ImageView fitHeight="295.0" fitWidth="230.0" layoutX="517.0" layoutY="2.0" nodeOrientation="INHERIT" pickOnBounds="true" preserveRatio="true">
+            <ImageView fx:id="opponentCard3" fitHeight="295.0" fitWidth="230.0" layoutX="525.0" nodeOrientation="INHERIT" pickOnBounds="true" preserveRatio="true">
                <image>
                   <Image url="@Images/rubashka.jpg" />
                </image>
             </ImageView>
-            <ImageView fitHeight="295.0" fitWidth="230.0" layoutX="757.0" layoutY="2.0" nodeOrientation="INHERIT" pickOnBounds="true" preserveRatio="true">
+            <ImageView fx:id="opponentCard4" fitHeight="295.0" fitWidth="230.0" layoutX="765.0" nodeOrientation="INHERIT" pickOnBounds="true" preserveRatio="true">
                <image>
                   <Image url="@Images/rubashka.jpg" />
                </image>
             </ImageView>
-            <ImageView fitHeight="295.0" fitWidth="230.0" layoutX="997.0" layoutY="2.0" nodeOrientation="INHERIT" pickOnBounds="true" preserveRatio="true">
+            <ImageView fx:id="opponentCard5" fitHeight="295.0" fitWidth="230.0" layoutX="1000.0" nodeOrientation="INHERIT" pickOnBounds="true" preserveRatio="true">
                <image>
                   <Image url="@Images/rubashka.jpg" />
                </image>
             </ImageView>
          </children>
       </AnchorPane>
-      <Label fx:id="YourHand" layoutX="271.0" layoutY="697.0" prefHeight="43.0" prefWidth="788.0" text="Your Hand" visible="false">
+      <Label fx:id="YourHand" layoutX="250.0" layoutY="700.0" prefHeight="43.0" prefWidth="788.0" text="Your Hand" visible="false">
          <font>
             <Font size="20.0" />
          </font>
       </Label>
-      <Label fx:id="OpponentHand" layoutX="554.0" layoutY="25.0" prefHeight="30.0" prefWidth="268.0" text="Opponents Hand">
+      <Label fx:id="OpponentHand" layoutX="250.0" layoutY="25.0" prefHeight="30.0" prefWidth="582.0" text="Opponents Hand" visible="false">
          <font>
             <Font size="20.0" />
          </font>
@@ -89,14 +89,19 @@
             <Font name="System Bold Italic" size="15.0" />
          </font>
       </Button>
-      <Button fx:id="TakeUrCards" layoutX="505.0" layoutY="676.0" mnemonicParsing="false" onAction="#onTakeUrCardsClick" prefHeight="73.0" prefWidth="303.0" text="Take your cards" textFill="#0c08da">
+      <Button fx:id="TakeUrCards" layoutX="513.0" layoutY="640.0" mnemonicParsing="false" onAction="#onTakeUrCardsClick" prefHeight="73.0" prefWidth="303.0" text="Take your cards" textFill="#0c08da">
          <font>
             <Font size="28.0" />
          </font>
       </Button>
-      <Button fx:id="Showdown" layoutX="536.0" layoutY="721.0" mnemonicParsing="false" prefHeight="84.0" prefWidth="231.0" text="Showdown" textFill="#f20000" visible="false">
+      <Button fx:id="Showdown" layoutX="549.0" layoutY="741.0" mnemonicParsing="false" onAction="#onShowdownClck" prefHeight="84.0" prefWidth="231.0" text="Showdown" textFill="#f20000" visible="false">
          <font>
             <Font size="31.0" />
+         </font>
+      </Button>
+      <Button fx:id="result" layoutX="952.0" layoutY="641.0" mnemonicParsing="false" onAction="#onResultclick" prefHeight="153.0" prefWidth="231.0" text="RESULT" textFill="#0cc95e" visible="false">
+         <font>
+            <Font size="48.0" />
          </font>
       </Button>
    </children>

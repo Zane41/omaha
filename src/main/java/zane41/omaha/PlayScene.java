@@ -1,12 +1,16 @@
 package zane41.omaha;
 
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.ButtonBar;
 import javafx.scene.control.Label;
 import javafx.scene.control.ToggleButton;
 import javafx.scene.image.ImageView;
+import javafx.stage.Stage;
 import zane41.omaha.classes.Card;
 import java.net.URL;
 import java.util.Comparator;
@@ -42,6 +46,16 @@ public class PlayScene implements Initializable {
     @FXML
      ImageView playerHandCard5;
     @FXML
+    ImageView opponentCard1;
+    @FXML
+    ImageView opponentCard2;
+    @FXML
+    ImageView opponentCard3;
+    @FXML
+    ImageView opponentCard4;
+    @FXML
+    ImageView opponentCard5;
+    @FXML
     Button TakeUrCards;
     @FXML
     Button ChangeCards;
@@ -49,6 +63,8 @@ public class PlayScene implements Initializable {
     ButtonBar ChangeBar;
     @FXML
     Button Showdown;
+    @FXML
+    Button result;
 
     public void onTakeUrCardsClick ()  {
         playerHandCard1.setImage(yourHand.setOfCards.getFirst().getImage());
@@ -56,8 +72,9 @@ public class PlayScene implements Initializable {
         playerHandCard3.setImage(yourHand.setOfCards.get(2).getImage());
         playerHandCard4.setImage(yourHand.setOfCards.get(3).getImage());
         playerHandCard5.setImage(yourHand.setOfCards.get(4).getImage());
-        TakeUrCards.setVisible(false); YourHand.setText("Your hand: "+yourHand.calcWeight());
-        YourHand.setVisible(true); ChangeBar.setVisible(true);ChangeCards.setVisible(true);
+        TakeUrCards.setVisible(false); OpponentHand.setVisible(true);
+        YourHand.setVisible(true);  YourHand.setText("Your hand: "+yourHand.calcWeight());
+        ChangeBar.setVisible(true); ChangeCards.setVisible(true);
     }
 
     public void onChangeCardsClick(){
@@ -85,6 +102,33 @@ public class PlayScene implements Initializable {
         ChangeBar.setVisible(false);
     }
 
+    public void onShowdownClck(){
+        opponentCard1.setImage(opponentsHand.setOfCards.getFirst().getImage());
+        opponentCard2.setImage(opponentsHand.setOfCards.get(1).getImage());
+        opponentCard3.setImage(opponentsHand.setOfCards.get(2).getImage());
+        opponentCard4.setImage(opponentsHand.setOfCards.get(3).getImage());
+        opponentCard5.setImage(opponentsHand.setOfCards.get(4).getImage());
+        OpponentHand.setText("Opponents hand: "+opponentsHand.calcWeight());
+        Showdown.setVisible(false); result.setVisible(true);
+    }
+
+    public void onResultclick(){
+        goToResultScene(new ActionEvent());
+    }
+    public void goToResultScene(ActionEvent event) {
+        try {
+            FXMLLoader fxmlLoader = new FXMLLoader(PlayScene.class.getResource("resultScene.fxml"));
+            Stage stage = (Stage) result.getScene().getWindow();
+            stage.setTitle("Omaha Poker");
+            Scene scene = new Scene(fxmlLoader.load(),1300, 840);
+            stage.setScene(scene);
+            stage.show();
+
+        }
+        catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
 
     public  PlayScene()  {
     }
