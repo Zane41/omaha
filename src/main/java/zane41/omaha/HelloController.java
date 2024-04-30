@@ -1,7 +1,5 @@
 package zane41.omaha;
 
-
-
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -30,7 +28,6 @@ public class HelloController implements Initializable {
     Button startButton;
     @FXML
     protected Label startMsg;
-
 
     public static Discard currentDiscard = new Discard();
     public static Hand yourHand = new Hand();
@@ -67,7 +64,5 @@ public class HelloController implements Initializable {
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
-
     }
-
 }
