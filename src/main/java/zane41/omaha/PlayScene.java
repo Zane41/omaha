@@ -115,6 +115,7 @@ public class PlayScene implements Initializable {
     public void onResultclick(){
         goToResultScene(new ActionEvent());
     }
+
     public void goToResultScene(ActionEvent event) {
         try {
             FXMLLoader fxmlLoader = new FXMLLoader(PlayScene.class.getResource("resultScene.fxml"));
@@ -132,6 +133,7 @@ public class PlayScene implements Initializable {
 
     public  PlayScene()  {
     }
+
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
     }
