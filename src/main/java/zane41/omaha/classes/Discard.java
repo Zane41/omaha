@@ -4,7 +4,7 @@ import java.util.ArrayList;
 
 public class Discard {
 
-    ArrayList<Card> hipeOfCards = new ArrayList<>();
+   public ArrayList<Card> hipeOfCards = new ArrayList<>();
 
     public void clearDiscard (){
         this.hipeOfCards.clear();

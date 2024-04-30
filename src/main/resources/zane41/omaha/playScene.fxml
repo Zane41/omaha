@@ -74,7 +74,7 @@
             </ImageView>
          </children>
       </AnchorPane>
-      <Label fx:id="YourHand" layoutX="601.0" layoutY="697.0" prefHeight="30.0" prefWidth="100.0" text="Your Hand" visible="false">
+      <Label fx:id="YourHand" layoutX="271.0" layoutY="697.0" prefHeight="43.0" prefWidth="788.0" text="Your Hand" visible="false">
          <font>
             <Font size="20.0" />
          </font>
@@ -84,7 +84,7 @@
             <Font size="20.0" />
          </font>
       </Label>
-      <Button fx:id="ChangeCards" layoutX="560.0" layoutY="741.0" mnemonicParsing="false" prefHeight="84.0" prefWidth="209.0" text="Change Choosen Cards" textFill="#2100f7" visible="false">
+      <Button fx:id="ChangeCards" layoutX="560.0" layoutY="741.0" mnemonicParsing="false" onAction="#onChangeCardsClick" prefHeight="84.0" prefWidth="209.0" text="Change Choosen Cards" textFill="#2100f7" visible="false">
          <font>
             <Font name="System Bold Italic" size="15.0" />
          </font>
@@ -92,6 +92,11 @@
       <Button fx:id="TakeUrCards" layoutX="505.0" layoutY="676.0" mnemonicParsing="false" onAction="#onTakeUrCardsClick" prefHeight="73.0" prefWidth="303.0" text="Take your cards" textFill="#0c08da">
          <font>
             <Font size="28.0" />
+         </font>
+      </Button>
+      <Button fx:id="Showdown" layoutX="536.0" layoutY="721.0" mnemonicParsing="false" prefHeight="84.0" prefWidth="231.0" text="Showdown" textFill="#f20000" visible="false">
+         <font>
+            <Font size="31.0" />
          </font>
       </Button>
    </children>

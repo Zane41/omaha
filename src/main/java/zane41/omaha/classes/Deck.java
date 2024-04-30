@@ -100,12 +100,11 @@ public class Deck {
         opponentsHand.setOfCards.add(this.deck.getFirst());
         this.deck.removeFirst();
     }
-    public void takeOneCardWhileChangeForPlayer (Hand playersHand){
-        playersHand.setOfCards.add(this.deck.getFirst());
-        this.deck.removeFirst();
+    public static Card takeOneCardWhileChange (Hand playersHand, Deck deck){
+        Card cardToReturn;
+        cardToReturn=deck.deck.getFirst();
+        deck.deck.removeFirst();
+        return cardToReturn;
     }
-    public void takeOneCardWhileChangeForOpponent (Hand opponentHand){
-        opponentHand.setOfCards.add(this.deck.getFirst());
-        this.deck.removeFirst();
-    }
+
 }

@@ -6,7 +6,10 @@ import static zane41.omaha.classes.ValuesOfHands.*;
 public class ValueOfAHand implements Comparable<ValueOfAHand> {
     ValuesOfHands value;
 
-    public ValueOfAHand(ValuesOfHands value) {
+    public ValueOfAHand() {
+    }
+
+    public void setValue(ValuesOfHands value) {
         this.value = value;
     }
 
@@ -47,7 +50,10 @@ public class ValueOfAHand implements Comparable<ValueOfAHand> {
         else return 0;
     }
 
-
-
-
+    @Override
+    public String toString() {
+        return "ValueOfAHand{" +
+                "value=" + value +
+                '}';
+    }
 }
