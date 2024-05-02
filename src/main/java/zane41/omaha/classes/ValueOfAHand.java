@@ -56,4 +56,8 @@ public class ValueOfAHand implements Comparable<ValueOfAHand> {
                 "value=" + value +
                 '}';
     }
+
+    public ValuesOfHands getValue() {
+        return value;
+    }
 }

@@ -8,8 +8,10 @@ public class Hand  {
 
     public ArrayList<Card> setOfCards = new ArrayList<>();
 
-    public ValueOfAHand calcWeight (){
-        ValueOfAHand currentHandWeight = new ValueOfAHand();
+    public static ValueOfAHand yoursHandWeight = new ValueOfAHand();
+    public static ValueOfAHand opponentsHandWeight = new ValueOfAHand();
+    public ValueOfAHand calcWeight (ValueOfAHand v){
+
 
         int flushCounter=1, pairCounter=0, setCounter=0, straightCounter=1,
             quadCounter=0, fullhouseCounter=0, straightflushCounter=1, pairTwoCounter=0, kickerCounter=0;
@@ -23,9 +25,9 @@ public class Hand  {
         flushCounter = getFlushCounter(flushCounter);
         straightflushCounter = getStraightflushCounter(straightflushCounter);
 
-        calcWeight(pairCounter, currentHandWeight, kickerCounter, pairTwoCounter, setCounter, straightCounter, flushCounter, fullhouseCounter, quadCounter, straightflushCounter);
+        calcWeight(pairCounter, v, kickerCounter, pairTwoCounter, setCounter, straightCounter, flushCounter, fullhouseCounter, quadCounter, straightflushCounter);
 
-        return currentHandWeight;
+        return v;
     }
 
     private void calcWeight(int pairCounter, ValueOfAHand currentHandWeight, int kickerCounter, int pairTwoCounter, int setCounter, int straightCounter, int flushCounter, int fullhouseCounter, int quadCounter, int straightflushCounter) {
@@ -56,7 +58,7 @@ public class Hand  {
                      if(setOfCards.get(i).getSuit().equals(setOfCards.get(i+1).getSuit()))
                     temp++;
             }
-                if (temp==4)
+                if (temp==3)
             straightflushCounter=5;
         }
         return straightflushCounter;
@@ -71,16 +73,19 @@ public class Hand  {
     }
 
     private int getStraightCounter(int straightCounter) {
-        for (int i=0; i<this.setOfCards.size()-1; i++){
-         if(setOfCards.get(i).valueForCompare==setOfCards.get(i+1).valueForCompare+1)
-             straightCounter++;
-        }
+
+        if(this.setOfCards.get(0).valueForCompare==this.setOfCards.get(1).valueForCompare-1&&
+           this.setOfCards.get(0).valueForCompare==this.setOfCards.get(2).valueForCompare-2&&
+           this.setOfCards.get(0).valueForCompare==this.setOfCards.get(3).valueForCompare-3&&
+           this.setOfCards.get(0).valueForCompare==this.setOfCards.get(4).valueForCompare-4)
+             straightCounter=5;
+
         if(this.setOfCards.get(0).valueForCompare==2&&
            this.setOfCards.get(1).valueForCompare==3&&
            this.setOfCards.get(2).valueForCompare==4&&
            this.setOfCards.get(3).valueForCompare==5&&
            this.setOfCards.get(4).valueForCompare==14)
-            straightCounter++;
+            straightCounter=5;
         return straightCounter;
     }
 

@@ -14,5 +14,7 @@ public enum ValuesOfHands {
         return STR."values{title='\{title}\{'\''}\{'}'}";
     }
 
-
+    public String getTitle() {
+        return title;
+    }
 }

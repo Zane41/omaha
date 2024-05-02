@@ -17,6 +17,7 @@ import java.util.Comparator;
 import java.util.ResourceBundle;
 import static zane41.omaha.HelloController.*;
 import static zane41.omaha.classes.Deck.takeOneCardWhileChange;
+import static zane41.omaha.classes.Hand.*;
 
 
 public class PlayScene implements Initializable {
@@ -73,7 +74,7 @@ public class PlayScene implements Initializable {
         playerHandCard4.setImage(yourHand.setOfCards.get(3).getImage());
         playerHandCard5.setImage(yourHand.setOfCards.get(4).getImage());
         TakeUrCards.setVisible(false); OpponentHand.setVisible(true);
-        YourHand.setVisible(true);  YourHand.setText("Your hand: "+yourHand.calcWeight());
+        YourHand.setVisible(true);  YourHand.setText("Your hand: "+yourHand.calcWeight(yoursHandWeight).getValue().getTitle());
         ChangeBar.setVisible(true); ChangeCards.setVisible(true);
     }
 
@@ -97,7 +98,7 @@ public class PlayScene implements Initializable {
         playerHandCard4.setImage(yourHand.setOfCards.get(3).getImage());
         playerHandCard5.setImage(yourHand.setOfCards.get(4).getImage());
         ChangeCards.setVisible(false);
-        YourHand.setText("Your hand: "+yourHand.calcWeight());
+        YourHand.setText("Your hand: "+yourHand.calcWeight(yoursHandWeight).getValue().getTitle());
         Showdown.setVisible(true);
         ChangeBar.setVisible(false);
     }
@@ -108,7 +109,7 @@ public class PlayScene implements Initializable {
         opponentCard3.setImage(opponentsHand.setOfCards.get(2).getImage());
         opponentCard4.setImage(opponentsHand.setOfCards.get(3).getImage());
         opponentCard5.setImage(opponentsHand.setOfCards.get(4).getImage());
-        OpponentHand.setText("Opponents hand: "+opponentsHand.calcWeight());
+        OpponentHand.setText("Opponents hand: "+opponentsHand.calcWeight(opponentsHandWeight).getValue().getTitle());
         Showdown.setVisible(false); result.setVisible(true);
     }
 
