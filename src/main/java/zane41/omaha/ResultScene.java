@@ -31,15 +31,19 @@ public class ResultScene implements Initializable {
     @FXML
     protected Label Draw;
 
+
+
     public static int winCounter = 0, loseCounter=0;
+
     public ResultScene(){
     }
 
+
     public void setResults (){
+        youWin.setText(String.valueOf(winCounter)); youLose.setText(String.valueOf(loseCounter));
         if (yoursHandWeight.compareTo(opponentsHandWeight)<0) youLoseNT();
         if (yoursHandWeight.compareTo(opponentsHandWeight) > 0)youWinGG();
-        if (yoursHandWeight.compareTo(opponentsHandWeight)==0)
-            calcIfDraw();
+        if (yoursHandWeight.compareTo(opponentsHandWeight)==0) calcIfDraw();
     }
 
     private void youLoseNT() {

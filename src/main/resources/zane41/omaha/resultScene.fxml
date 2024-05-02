@@ -5,7 +5,6 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-
 <AnchorPane prefHeight="840.0" prefWidth="1300.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="zane41.omaha.ResultScene">
    <children>
       <Label fx:id="youWin" alignment="CENTER" contentDisplay="CENTER" layoutX="328.0" layoutY="123.0" prefHeight="325.0" prefWidth="644.0" text="You WIN!    =)" textAlignment="CENTER" textFill="#07ee12" visible="false">
@@ -23,7 +22,7 @@
             <Font size="31.0" />
          </font>
       </Label>
-      <Label fx:id="winsCounter" layoutX="132.0" layoutY="684.0" prefHeight="38.0" prefWidth="76.0" text="0" textFill="#1eff00">
+      <Label fx:id="winsCounter" layoutX="132.0" layoutY="684.0" prefHeight="38.0" prefWidth="76.0" textFill="#1eff00">
          <font>
             <Font size="50.0" />
          </font>
@@ -33,7 +32,7 @@
             <Font size="30.0" />
          </font>
       </Label>
-      <Label fx:id="losesCounter" layoutX="1137.0" layoutY="684.0" text="0" textFill="#e80303">
+      <Label fx:id="losesCounter" layoutX="1137.0" layoutY="684.0" textFill="#e80303">
          <font>
             <Font size="50.0" />
          </font>
