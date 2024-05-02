@@ -21,44 +21,44 @@ public class ResultScene implements Initializable {
     @FXML
     Button newGameBtn;
     @FXML
-    protected Label winsCounter;
+    protected  Label winsCounter;
     @FXML
     protected   Label losesCounter;
     @FXML
-    protected Label youWin;
+    protected  Label youWin;
     @FXML
-    protected Label youLose;
+    protected  Label youLose;
     @FXML
-    protected Label Draw;
+    protected  Label Draw;
 
 
 
-    public static int winCounter = 0, loseCounter=0;
 
-    public ResultScene(){
+
+    public  ResultScene(){
     }
 
+    @FXML
+    public  void setResults (){
 
-    public void setResults (){
-        youWin.setText(String.valueOf(winCounter)); youLose.setText(String.valueOf(loseCounter));
         if (yoursHandWeight.compareTo(opponentsHandWeight)<0) youLoseNT();
         if (yoursHandWeight.compareTo(opponentsHandWeight) > 0)youWinGG();
         if (yoursHandWeight.compareTo(opponentsHandWeight)==0) calcIfDraw();
     }
-
+    @FXML
     private void youLoseNT() {
             youLose.setVisible(true);
-            loseCounter++;
-            losesCounter.setText(String.valueOf(loseCounter));
+            loseCounter1111++;
+            losesCounter.setText(String.valueOf(loseCounter1111));
     }
-
-    private void youWinGG() {
+    @FXML
+    private  void youWinGG() {
             youWin.setVisible(true);
-            winCounter++;
-            winsCounter.setText(String.valueOf(winCounter));
+            winCounter111++;
+            winsCounter.setText(String.valueOf(winCounter111));
     }
-
-    private void calcIfDraw() {
+    @FXML
+    private  void calcIfDraw() {
        int calcDraw = 0;
         if(calcIfDrawSF()==1)  youWinGG();
         if(calcIfDrawSF()==-1)  youLoseNT();
@@ -87,7 +87,7 @@ public class ResultScene implements Initializable {
         if (calcDraw==6) Draw.setVisible(true);
     }
 
-    private int calcIfDrawHC() {
+    private  int calcIfDrawHC() {
         int temp=0;
         if (yoursHandWeight.getValue().equals(ValuesOfHands.Kicker)&&opponentsHandWeight.getValue().equals(ValuesOfHands.Kicker)) {
             for (int i = 4; i > 0; i--) {
@@ -104,7 +104,7 @@ public class ResultScene implements Initializable {
         return temp;
     }
 
-    private int calcIfDrawP() {
+    private  int calcIfDrawP() {
         int tempToReturn=0, temp4Your=0, temp4Opp=0;
         if (yoursHandWeight.getValue().equals(ValuesOfHands.Pair)&&opponentsHandWeight.getValue().equals(ValuesOfHands.Pair)){
             for (int i = 0; i < yourHand.setOfCards.size()-1; i++) {
@@ -121,7 +121,7 @@ public class ResultScene implements Initializable {
         return tempToReturn;
     }
 
-    private int calcIfDraw2P() {
+    private  int calcIfDraw2P() {
         int temp =0;
         return temp;
     }
@@ -140,7 +140,7 @@ public class ResultScene implements Initializable {
         return temp;
     }
 
-    private int calcIfDrawStr() {
+    private  int calcIfDrawStr() {
         int temp=0;
         if (yoursHandWeight.getValue().equals(ValuesOfHands.Straight)&&opponentsHandWeight.getValue().equals(ValuesOfHands.Straight)) {
             if (yourHand.setOfCards.get(4).getValueForCompare() > opponentsHand.setOfCards.get(4).getValueForCompare() ||
@@ -153,7 +153,7 @@ public class ResultScene implements Initializable {
         return temp;
     }
 
-    private int calcIfDrawFl() {
+    private  int calcIfDrawFl() {
         int temp=0;
         if (yoursHandWeight.getValue().equals(ValuesOfHands.Flush)&&opponentsHandWeight.getValue().equals(ValuesOfHands.Flush)) {
             for (int i = 4; i > 0; i--) {
@@ -170,7 +170,7 @@ public class ResultScene implements Initializable {
         return temp;
     }
 
-    private int calcIfDrawFH() {
+    private  int calcIfDrawFH() {
         int temp=0;
         if (yoursHandWeight.getValue().equals(ValuesOfHands.FullHouse)&&opponentsHandWeight.getValue().equals(ValuesOfHands.FullHouse)){
 
@@ -184,7 +184,7 @@ public class ResultScene implements Initializable {
         return temp;
     }
 
-    private int calcIfDrawQuad() {
+    private  int calcIfDrawQuad() {
         int temp=0;
         if (yoursHandWeight.getValue().equals(ValuesOfHands.Quad)&&opponentsHandWeight.getValue().equals(ValuesOfHands.Quad)) {
 
@@ -198,7 +198,7 @@ public class ResultScene implements Initializable {
         return temp;
     }
 
-    private int calcIfDrawSF() {
+    private  int calcIfDrawSF() {
         int temp=0;
         if (yoursHandWeight.getValue().equals(ValuesOfHands.StraightFlush)&&opponentsHandWeight.getValue().equals(ValuesOfHands.StraightFlush)) {
             if (yourHand.setOfCards.get(4).getValueForCompare() > opponentsHand.setOfCards.get(4).getValueForCompare() ||
@@ -247,6 +247,7 @@ public class ResultScene implements Initializable {
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
-
+        winsCounter.setText(String.valueOf(winCounter111)); losesCounter.setText(String.valueOf(loseCounter1111));
+        setResults ();
     }
 }

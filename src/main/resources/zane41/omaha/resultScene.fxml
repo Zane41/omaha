@@ -32,7 +32,7 @@
             <Font size="30.0" />
          </font>
       </Label>
-      <Label fx:id="losesCounter" layoutX="1137.0" layoutY="684.0" textFill="#e80303">
+      <Label fx:id="losesCounter" layoutX="1137.0" layoutY="684.0" prefHeight="73.0" prefWidth="97.0" textFill="#e80303">
          <font>
             <Font size="50.0" />
          </font>

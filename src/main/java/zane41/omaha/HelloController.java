@@ -29,6 +29,7 @@ public class HelloController implements Initializable {
     @FXML
     protected Label startMsg;
 
+    public static int winCounter111 = 0, loseCounter1111=0;
     public static Discard currentDiscard = new Discard();
     public static Hand yourHand = new Hand();
     public static Hand opponentsHand = new Hand();
