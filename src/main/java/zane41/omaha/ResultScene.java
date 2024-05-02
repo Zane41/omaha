@@ -9,7 +9,6 @@ import javafx.scene.control.Label;
 import javafx.stage.Stage;
 import zane41.omaha.classes.Card;
 import zane41.omaha.classes.ValuesOfHands;
-
 import java.net.URL;
 import java.util.Comparator;
 import java.util.ResourceBundle;
@@ -18,8 +17,6 @@ import static zane41.omaha.classes.Hand.opponentsHandWeight;
 import static zane41.omaha.classes.Hand.yoursHandWeight;
 
 public class ResultScene implements Initializable {
-
-
 
     @FXML
     Button newGameBtn;
@@ -31,137 +28,182 @@ public class ResultScene implements Initializable {
     protected Label youWin;
     @FXML
     protected Label youLose;
-
+    @FXML
+    protected Label Draw;
 
     public static int winCounter = 0, loseCounter=0;
     public ResultScene(){
     }
 
-
     public void setResults (){
-        if (yoursHandWeight.compareTo(opponentsHandWeight) > 0){
-            youWin.setVisible(true);
-            winCounter++;
-            winsCounter.setText(String.valueOf(winCounter));
-        }
-        if (yoursHandWeight.compareTo(opponentsHandWeight)<0){
+        if (yoursHandWeight.compareTo(opponentsHandWeight)<0) youLoseNT();
+        if (yoursHandWeight.compareTo(opponentsHandWeight) > 0)youWinGG();
+        if (yoursHandWeight.compareTo(opponentsHandWeight)==0)
+            calcIfDraw();
+    }
+
+    private void youLoseNT() {
             youLose.setVisible(true);
             loseCounter++;
             losesCounter.setText(String.valueOf(loseCounter));
-        }
-        if (yoursHandWeight.compareTo(opponentsHandWeight)==0) {
-            calcIfDraw();
-        }
+    }
+
+    private void youWinGG() {
+            youWin.setVisible(true);
+            winCounter++;
+            winsCounter.setText(String.valueOf(winCounter));
     }
 
     private void calcIfDraw() {
-        calcIfDrawSF();
-        calcIfDrawQuad();
-        calcIfDrawFH();
-        calcIfDrawFl();
-        calcIfDrawStr();
-        calcIfDrawSet();
-        calcIfDraw2P();
-        calcIfDrawP();
-        calcIfDrawHC();
+       int calcDraw = 0;
+        if(calcIfDrawSF()==1)  youWinGG();
+        if(calcIfDrawSF()==-1)  youLoseNT();
+        if(calcIfDrawSF()==0) calcDraw++;
+        if(calcIfDrawQuad()==1)  youWinGG();
+        if(calcIfDrawQuad()==-1)  youLoseNT();
+        if(calcIfDrawFH()==1)  youWinGG();
+        if(calcIfDrawFH()==-1)  youLoseNT();
+        if(calcIfDrawFl()==1)  youWinGG();
+        if(calcIfDrawFl()==-1)  youLoseNT();
+        if(calcIfDrawFl()==0) calcDraw++;
+        if(calcIfDrawStr()==1)  youWinGG();
+        if(calcIfDrawStr()==-1)  youLoseNT();
+        if(calcIfDrawStr()==0) calcDraw++;
+        if(calcIfDrawSet()==1)  youWinGG();
+        if(calcIfDrawSet()==-1)  youLoseNT();
+        if(calcIfDraw2P()==1)  youWinGG();
+        if(calcIfDraw2P()==-1)  youLoseNT();
+        if(calcIfDraw2P()==0) calcDraw++;
+        if(calcIfDrawP()==1)  youWinGG();
+        if(calcIfDrawP()==-1)  youLoseNT();
+        if(calcIfDrawP()==0) calcDraw++;
+        if(calcIfDrawHC()==1)  youWinGG();
+        if(calcIfDrawHC()==-1)  youLoseNT();
+        if(calcIfDrawHC()==0) calcDraw++;
+        if (calcDraw==6) Draw.setVisible(true);
     }
 
     private int calcIfDrawHC() {
         int temp=0;
-        if (yoursHandWeight.getValue().equals(ValuesOfHands.Kicker)&&opponentsHandWeight.getValue().equals(ValuesOfHands.Kicker))
-            for (int i = 4; i >0; i--) {
-                if(yourHand.setOfCards.get(i).getValueForCompare()>opponentsHand.setOfCards.get(i).getValueForCompare()) {
-                    temp = 1; break;
+        if (yoursHandWeight.getValue().equals(ValuesOfHands.Kicker)&&opponentsHandWeight.getValue().equals(ValuesOfHands.Kicker)) {
+            for (int i = 4; i > 0; i--) {
+                if (yourHand.setOfCards.get(i).getValueForCompare() > opponentsHand.setOfCards.get(i).getValueForCompare()) {
+                    temp = 1;
+                    break;
                 }
-                if(yourHand.setOfCards.get(i).getValueForCompare()<opponentsHand.setOfCards.get(i).getValueForCompare()) {
-                    temp = -1; break;
+                if (yourHand.setOfCards.get(i).getValueForCompare() < opponentsHand.setOfCards.get(i).getValueForCompare()) {
+                    temp = -1;
+                    break;
                 }
             }
+        }
         return temp;
     }
 
-    private void calcIfDrawP() {
-        if (yoursHandWeight.getValue().equals(ValuesOfHands.Pair)&&opponentsHandWeight.getValue().equals(ValuesOfHands.Pair))
-
+    private int calcIfDrawP() {
+        int tempToReturn=0, temp4Your=0, temp4Opp=0;
+        if (yoursHandWeight.getValue().equals(ValuesOfHands.Pair)&&opponentsHandWeight.getValue().equals(ValuesOfHands.Pair)){
+            for (int i = 0; i < yourHand.setOfCards.size()-1; i++) {
+                if (yourHand.setOfCards.get(i).getValueForCompare()==yourHand.setOfCards.get(i+1).getValueForCompare())
+                    temp4Your = yourHand.setOfCards.get(i).getValueForCompare();
+            }
+            for (int i = 0; i < opponentsHand.setOfCards.size()-1; i++) {
+                if (opponentsHand.setOfCards.get(i).getValueForCompare()==opponentsHand.setOfCards.get(i+1).getValueForCompare())
+                    temp4Opp = opponentsHand.setOfCards.get(i).getValueForCompare();
+            }
+        if (temp4Your>temp4Opp) tempToReturn=1;
+        if (temp4Your<temp4Opp) tempToReturn=-1;
+        }
+        return tempToReturn;
     }
 
-    private void calcIfDraw2P() {
+    private int calcIfDraw2P() {
+        int temp =0;
+        return temp;
     }
 
     private int calcIfDrawSet() {
         int temp=0;
-        if (yoursHandWeight.getValue().equals(ValuesOfHands.Set)&&opponentsHandWeight.getValue().equals(ValuesOfHands.Set))
+        if (yoursHandWeight.getValue().equals(ValuesOfHands.Set)&&opponentsHandWeight.getValue().equals(ValuesOfHands.Set)) {
 
-                if(yourHand.setOfCards.get(2).getValueForCompare()>opponentsHand.setOfCards.get(2).getValueForCompare()) {
-                    temp = 1;
-                }
-                if(yourHand.setOfCards.get(2).getValueForCompare()<opponentsHand.setOfCards.get(2).getValueForCompare()) {
-                    temp = -1;
-                }
+            if (yourHand.setOfCards.get(2).getValueForCompare() > opponentsHand.setOfCards.get(2).getValueForCompare()) {
+                temp = 1;
+            }
+            if (yourHand.setOfCards.get(2).getValueForCompare() < opponentsHand.setOfCards.get(2).getValueForCompare()) {
+                temp = -1;
+            }
+        }
         return temp;
     }
 
     private int calcIfDrawStr() {
         int temp=0;
-        if (yoursHandWeight.getValue().equals(ValuesOfHands.Straight)&&opponentsHandWeight.getValue().equals(ValuesOfHands.Straight))
-                if(yourHand.setOfCards.get(4).getValueForCompare()>opponentsHand.setOfCards.get(4).getValueForCompare()||
-                    opponentsHand.setOfCards.get(4).getValueForCompare()==14&&yourHand.setOfCards.get(4).getValueForCompare()==14)
-                    temp = 1;
-                if(yourHand.setOfCards.get(4).getValueForCompare()<opponentsHand.setOfCards.get(4).getValueForCompare()||
-                    yourHand.setOfCards.get(4).getValueForCompare()==14&&opponentsHand.setOfCards.get(4).getValueForCompare()!=14)
-                    temp = -1;
+        if (yoursHandWeight.getValue().equals(ValuesOfHands.Straight)&&opponentsHandWeight.getValue().equals(ValuesOfHands.Straight)) {
+            if (yourHand.setOfCards.get(4).getValueForCompare() > opponentsHand.setOfCards.get(4).getValueForCompare() ||
+                    opponentsHand.setOfCards.get(4).getValueForCompare() == 14 && yourHand.setOfCards.get(4).getValueForCompare() == 14)
+                temp = 1;
+            if (yourHand.setOfCards.get(4).getValueForCompare() < opponentsHand.setOfCards.get(4).getValueForCompare() ||
+                    yourHand.setOfCards.get(4).getValueForCompare() == 14 && opponentsHand.setOfCards.get(4).getValueForCompare() != 14)
+                temp = -1;
+        }
         return temp;
     }
 
     private int calcIfDrawFl() {
         int temp=0;
-        if (yoursHandWeight.getValue().equals(ValuesOfHands.Flush)&&opponentsHandWeight.getValue().equals(ValuesOfHands.Flush))
-            for (int i = 4; i  >  0; i--) {
-                if(yourHand.setOfCards.get(i).getValueForCompare()>opponentsHand.setOfCards.get(i).getValueForCompare()) {
-                    temp = 1; break;
+        if (yoursHandWeight.getValue().equals(ValuesOfHands.Flush)&&opponentsHandWeight.getValue().equals(ValuesOfHands.Flush)) {
+            for (int i = 4; i > 0; i--) {
+                if (yourHand.setOfCards.get(i).getValueForCompare() > opponentsHand.setOfCards.get(i).getValueForCompare()) {
+                    temp = 1;
+                    break;
                 }
-                if(yourHand.setOfCards.get(i).getValueForCompare()<opponentsHand.setOfCards.get(i).getValueForCompare()) {
-                    temp = -1; break;
+                if (yourHand.setOfCards.get(i).getValueForCompare() < opponentsHand.setOfCards.get(i).getValueForCompare()) {
+                    temp = -1;
+                    break;
                 }
             }
+        }
         return temp;
     }
 
     private int calcIfDrawFH() {
         int temp=0;
-        if (yoursHandWeight.getValue().equals(ValuesOfHands.FullHouse)&&opponentsHandWeight.getValue().equals(ValuesOfHands.FullHouse))
+        if (yoursHandWeight.getValue().equals(ValuesOfHands.FullHouse)&&opponentsHandWeight.getValue().equals(ValuesOfHands.FullHouse)){
 
             if(yourHand.setOfCards.get(2).getValueForCompare()>opponentsHand.setOfCards.get(2).getValueForCompare()) {
                 temp = 1;
             }
         if(yourHand.setOfCards.get(2).getValueForCompare()<opponentsHand.setOfCards.get(2).getValueForCompare()) {
             temp = -1;
+        }
         }
         return temp;
     }
 
     private int calcIfDrawQuad() {
         int temp=0;
-        if (yoursHandWeight.getValue().equals(ValuesOfHands.Quad)&&opponentsHandWeight.getValue().equals(ValuesOfHands.Quad))
+        if (yoursHandWeight.getValue().equals(ValuesOfHands.Quad)&&opponentsHandWeight.getValue().equals(ValuesOfHands.Quad)) {
 
-            if(yourHand.setOfCards.get(2).getValueForCompare()>opponentsHand.setOfCards.get(2).getValueForCompare()) {
+            if (yourHand.setOfCards.get(2).getValueForCompare() > opponentsHand.setOfCards.get(2).getValueForCompare()) {
                 temp = 1;
             }
-        if(yourHand.setOfCards.get(2).getValueForCompare()<opponentsHand.setOfCards.get(2).getValueForCompare()) {
-            temp = -1;
+            if (yourHand.setOfCards.get(2).getValueForCompare() < opponentsHand.setOfCards.get(2).getValueForCompare()) {
+                temp = -1;
+            }
         }
         return temp;
     }
 
     private int calcIfDrawSF() {
         int temp=0;
-        if (yoursHandWeight.getValue().equals(ValuesOfHands.StraightFlush)&&opponentsHandWeight.getValue().equals(ValuesOfHands.StraightFlush))
-            if(yourHand.setOfCards.get(4).getValueForCompare()>opponentsHand.setOfCards.get(4).getValueForCompare()||
-                    opponentsHand.setOfCards.get(4).getValueForCompare()==14&&yourHand.setOfCards.get(4).getValueForCompare()==14)
+        if (yoursHandWeight.getValue().equals(ValuesOfHands.StraightFlush)&&opponentsHandWeight.getValue().equals(ValuesOfHands.StraightFlush)) {
+            if (yourHand.setOfCards.get(4).getValueForCompare() > opponentsHand.setOfCards.get(4).getValueForCompare() ||
+                    opponentsHand.setOfCards.get(4).getValueForCompare() == 14 && yourHand.setOfCards.get(4).getValueForCompare() == 14)
                 temp = 1;
-        if(yourHand.setOfCards.get(4).getValueForCompare()<opponentsHand.setOfCards.get(4).getValueForCompare()||
-                yourHand.setOfCards.get(4).getValueForCompare()==14&&opponentsHand.setOfCards.get(4).getValueForCompare()!=14)
-            temp = -1;
+            if (yourHand.setOfCards.get(4).getValueForCompare() < opponentsHand.setOfCards.get(4).getValueForCompare() ||
+                    yourHand.setOfCards.get(4).getValueForCompare() == 14 && opponentsHand.setOfCards.get(4).getValueForCompare() != 14)
+                temp = -1;
+        }
         return temp;
     }
 

@@ -43,5 +43,10 @@
             <Font size="56.0" />
          </font>
       </Button>
+      <Label fx:id="Draw" alignment="CENTER" contentDisplay="CENTER" layoutX="328.0" layoutY="123.0" prefHeight="325.0" prefWidth="644.0" text="Draw    =/" textAlignment="CENTER" textFill="#0733ed" visible="false">
+         <font>
+            <Font size="70.0" />
+         </font>
+      </Label>
    </children>
 </AnchorPane>
