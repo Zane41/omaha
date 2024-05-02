@@ -39,9 +39,7 @@ public class HelloController implements Initializable {
         currentDeck.fillDeck();
         currentDeck.shuffleDeck();
         currentDeck.fillPlayersHand(yourHand, opponentsHand);
-        System.out.println(yourHand);
         yourHand.setOfCards.sort(Comparator.comparing(Card::getValueForCompare));
-        System.out.println(yourHand);
         opponentsHand.setOfCards.sort(Comparator.comparing(Card::getValueForCompare));
         goToPlayScene(new ActionEvent());
     }
